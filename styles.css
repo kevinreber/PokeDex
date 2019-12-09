@@ -1,0 +1,138 @@
+body {
+    background-color: orangered;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 54px;
+}
+
+.rotate {
+    width: 30px;
+    animation: rotation 4s infinite linear;
+}
+
+.container {
+    display: grid;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.card-subtitle {
+    font-weight: lighter;
+    color: #666;
+    margin-top: 5px;
+}
+
+.card-image {
+    height: 180px;
+    margin: auto;
+}
+
+.card {
+    list-style: none;
+    padding: 40px;
+}
+
+.card:hover {
+    border: 8px solid rgb(248, 233, 23);
+    box-shadow: 1px 1px 24px 12px rgb(248, 233, 23);
+    animation: bounce 0.5s linear;
+    background-color: #f4f4f4;
+}
+
+.card,
+#title {
+    box-shadow: inset 1px 1px 10px 2px #707070;
+    background-color: #f4f4f4;
+    color: #222;
+    text-align: center;
+    border-radius: 15px;
+    border: 8px solid #222;
+}
+
+#title {
+    font-size: 36px;
+    padding: 20px;
+    margin-top: 0;
+    margin-right: 12%;
+    margin-left: 12%;
+}
+
+#filter {
+    box-shadow: inset 0px 0px 3px 1px #707070;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 8px;
+    margin-bottom: 5px;
+    margin-right: auto;
+    border: 3px solid #222;
+    font-style: italic;
+    background-color: #f4f4f4;
+}
+
+#filter:focus {
+    background-color: #ffffff;
+}
+
+#filter:hover {
+    cursor: text;
+}
+
+#pokedex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+
+    40% {
+        transform: translateY(0px);
+    }
+
+    60% {
+        transform: translateY(-2px);
+    }
+
+    80% {
+        transform: translateY(-0px);
+    }
+}
+
+@media (min-width: 850px) {
+    #title {
+        font-size: 48px;
+        margin-right: 25%;
+        margin-left: 25%;
+    }
+
+    .rotate {
+        width: 40px;
+    }
+}
