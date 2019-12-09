@@ -90,6 +90,27 @@ h1 {
     cursor: text;
 }
 
+#scroll-to-top {
+    position: fixed;
+    margin: 0;
+    bottom: 25px;
+    right: 25px;
+    background-color: orangered;
+    border: 3px solid #f4f4f4;
+    border-radius: 10px;
+    color: #f4f4f4;
+    padding: 12px;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 0px #707070;
+    scroll-behavior: smooth;
+}
+
+#scroll-to-top:hover {
+    background-color: #f4f4f4;
+    color: orangered;
+}
+
 #pokedex {
     padding-inline-start: 0;
     display: grid;
@@ -134,5 +155,10 @@ h1 {
 
     .rotate {
         width: 40px;
+    }
+
+    .scroll-to-top {
+        padding: 15px;
+        font-size: 14px;
     }
 }
