@@ -11,6 +11,10 @@ h1 {
     font-size: 54px;
 }
 
+input {
+    outline: none;
+}
+
 .rotate {
     width: 30px;
     animation: rotation 4s infinite linear;
@@ -22,6 +26,7 @@ h1 {
     margin: 0 auto;
 }
 
+/* **** CARDS **** */
 .card-title {
     text-transform: uppercase;
     font-size: 32px;
@@ -43,6 +48,8 @@ h1 {
 .card {
     list-style: none;
     padding: 40px;
+    cursor: pointer;
+    transition: all .1s linear;
 }
 
 .card:hover {
@@ -53,6 +60,7 @@ h1 {
 }
 
 .card,
+.modal-card,
 #title {
     box-shadow: inset 1px 1px 10px 2px #707070;
     background-color: #f4f4f4;
@@ -70,6 +78,7 @@ h1 {
     margin-left: 12%;
 }
 
+/* **** FILTER **** */
 #filter {
     box-shadow: inset 0px 0px 3px 1px #707070;
     border-radius: 5px;
@@ -78,18 +87,25 @@ h1 {
     margin-bottom: 5px;
     margin-right: auto;
     border: 3px solid #222;
+    width: 35%;
     font-style: italic;
     background-color: #f4f4f4;
+    transition: all .2s linear;
 }
 
-#filter:focus {
+#filter:focus,
+#filter:hover {
+    width: 60%;
     background-color: #ffffff;
+    border: 3px solid rgb(248, 233, 23);
+    box-shadow: 1px 1px 24px 12px rgb(248, 233, 23);
 }
 
 #filter:hover {
     cursor: text;
 }
 
+/* **** SCROLL **** */
 #scroll-to-top {
     position: fixed;
     margin: 0;
@@ -118,6 +134,111 @@ h1 {
     grid-gap: 20px;
 }
 
+/* **** OVERLAY **** */
+#overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: auto;
+    transition: all .2s linear;
+}
+
+.modal-overlay {
+    display: flex;
+    margin: auto;
+    position: relative;
+}
+
+.modal-overlay img {
+    width: 100px;
+    height: 100px;
+}
+
+.modal-cycle-container {
+    position: relative;
+    font-size: 20px;
+    margin: auto;
+}
+
+.modal-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .2s linear;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.modal-button:hover {
+    border-color: rgb(248, 233, 23);
+    color: rgb(248, 233, 23);
+    box-shadow: 1px 1px 14px 10px rgb(248, 233, 23);
+    background-color: rgba(255, 255, 255, .75);
+    transform: scale(1.1);
+}
+
+.modal-button {
+    margin: auto;
+    color: #fff;
+
+    transition: all .2s linear;
+}
+
+.modal-card {
+    position: relative;
+    margin-top: 5rem;
+    width: 40%;
+    height: 400px;
+    border: 8px solid rgb(248, 233, 23);
+    box-shadow: 1px 1px 24px 12px rgb(248, 233, 23);
+}
+
+.modal-images {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.modal-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.modal-text{
+    font-size: 16px;
+}
+
+.modal-close {
+    fill: lightgray;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    transition: all .2s linear;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 3px;
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.modal-close:hover {
+    fill: #222;
+    box-shadow: 0 0 3px 3px darkgray;
+}
+
+/* **** ANIMATIONS **** */
 @keyframes rotation {
     from {
         transform: rotate(0deg);
@@ -146,11 +267,21 @@ h1 {
     }
 }
 
+/* **** MEDIA QUERIES **** */
 @media (min-width: 850px) {
     #title {
         font-size: 48px;
         margin-right: 25%;
         margin-left: 25%;
+    }
+
+    #filter {
+        width: 20%;
+    }
+
+    #filter:focus,
+    #filter:hover {
+        width: 35%;
     }
 
     .rotate {
@@ -161,4 +292,32 @@ h1 {
         padding: 15px;
         font-size: 14px;
     }
+
+    .modal-cycle-container {
+        font-size: 48px;
+    }
+
+    .modal-button {
+        width: 56px;
+        height: 56px;
+    }
+
+    .modal-overlay img {
+        width: 175px;
+        height: 175px;
+    }
+
+    .modal-card {
+        width: 30%;
+        height: 500px;
+    }
+
+    .modal-title {
+        font-size: 36px;
+    }
+    
+    .modal-text{
+        font-size: 20px;
+    }
+
 }
