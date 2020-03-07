@@ -14,12 +14,12 @@ const fetchPokemon = () => {
     }
 
     Promise.all(promises).then(results => {
-        pokeData = results.map((data) => ({
+        pokeData = results.map(data => ({
             name: data.name,
             id: data.id,
             image: data.sprites['front_default'],
             shiny: data.sprites['front_shiny'],
-            type: data.types.map(type => type.type.name).join(', '),
+            type: data.types.map(type => type.type.name).join('/').toUpperCase(),
             abilities: data.abilities.map(ability => ability.ability.name).join(', ')
         }));
         displayPokemon(pokeData);
@@ -63,8 +63,8 @@ function displayModal(pokemon) {
             </div>
             <div class="modal-text">
                 <h2 class="card-title modal-title"> ${pokemon.id}.${pokemon.name} </h2> 
+                <p class="card-subtitle modal-text">Type: ${pokemon.type}</p>
                 <p class="card-subtitle modal-text">Abilities: ${pokemon.abilities}</p>
-                <p class="card-subtitle modal-text">Type: ${pokemon.type}</p> 
             </div> 
         </div>
         <div class="modal-cycle-container">
