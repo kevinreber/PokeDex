@@ -7,7 +7,9 @@ function Header(){
             <header>
                 <div id='overlay'></div>
                 <h1 id="title"> 
-                    <Pokeball /> Pokedex  <Pokeball />
+                    <Pokeball /> 
+                    Pokedex  
+                    <Pokeball />
                 </h1>
                 <input id="filter" type="text" placeholder="Type..." />
             </header>
