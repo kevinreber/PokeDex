@@ -1,13 +1,23 @@
-## Pokedex
+# Pokedex
 Gotta Catch 'em All!
 Simple Pokedex App with the original 151 Pokemon.
 
-This project focused on:
-- Fetch API 
 
-### Demo
-![Pokedex Demo](demo/pokedexDemo.gif)
+## Demo
+![Pokedex Demo](public/demo/pokedexDemo.gif)
 <a href="https://kevinreber.github.io/PokeDex/">Live Demo</a>
 
-### Poke API
-- https://pokeapi.co/
+## Pokemon API
+- [PokeApi](https://pokeapi.co/)
+
+## Start App
+
+### Install Dependencies
+```
+npm install
+```
+
+### Run App
+```
+npm start
+```
