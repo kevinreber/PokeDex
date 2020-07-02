@@ -1,9 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import useAxios from '../hooks/useAxios';
-import axios from 'axios';
 import Card from './Card';
-
-const API_BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
 
 function Pokedex(){
     const [pokemon, errors, isLoading] = useAxios(1,5);
@@ -29,9 +26,6 @@ function Pokedex(){
         <div className="Pokedex">
         <ol id="pokedex">
             { isLoading ? (<h3 id="Loading" >Loading...</h3>) : pokemons }
-
-            {/* { pokemon ? pokemons : (<h3>Loading...</h3>) } */}
-            {/* {pokemons} */}
         </ol>
         </div>
     )
