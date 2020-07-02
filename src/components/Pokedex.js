@@ -9,7 +9,10 @@ function Pokedex(){
     const [pokemon, errors, isLoading] = useAxios(1,5);
     // const [modal, setModal] = useState(false);
 
-
+    /** return error screen if error has ocurred */
+    if (errors){
+        return (<h3 id="Loading" >Sorry, an error has occured!</h3>)
+    }
 
     const pokemons = pokemon.map(p => (
         <Card
