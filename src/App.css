@@ -135,6 +135,11 @@ input {
 }
 
 /* **** OVERLAY **** */
+#Loading {
+  text-align: center;
+}
+
+/* **** OVERLAY **** */
 #overlay {
   display: none;
   position: fixed;

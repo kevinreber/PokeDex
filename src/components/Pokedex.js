@@ -25,7 +25,7 @@ function Pokedex(){
     return (
         <div className="Pokedex">
         <ol id="pokedex">
-            { isLoading ? (<h3>Loading...</h3>) : pokemons }
+            { isLoading ? (<h3 id="Loading" >Loading...</h3>) : pokemons }
 
             {/* { pokemon ? pokemons : (<h3>Loading...</h3>) } */}
             {/* {pokemons} */}
