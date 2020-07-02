@@ -1,8 +1,9 @@
 import React from 'react';
+import pokeball from './pokeball.png';
 
 function Pokeball(){
     return ( 
-        <img className="rotate" src="./pokeball.png" alt="pokeball" /> 
+        <img className="rotate" src={pokeball} alt="pokeball" /> 
     );
 }
 
