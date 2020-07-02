@@ -13,12 +13,12 @@ function useAxios(start=1,end=150){
         const getData = async () =>{
             try{
                 let results = [];
-    
+        
                 for (let i = start; i <= end; i++) {
                     let resp = await axios.get(`${BASE_URL}/${i}`);
                     results.push(resp.data);
                 }
-        
+                    
                 results.map(r => {
                         setResponse(p => [...p,
                         {
@@ -30,14 +30,19 @@ function useAxios(start=1,end=150){
                             abilities: r.abilities.map(ability => ability.ability.name).join(', ')
                         }
                     ]);
-                });
-                setIsLoading(false);
+                });                    
             } catch (err) {
                 setErrors(err);
             }
+            /** set 'isLoading' to false when all data is received */
+            setIsLoading(false);
         }
-        getData();
-    });
+
+        /** getData on page load */
+        if (isLoading){
+            getData();
+        }
+    }, []);
     return [responses, errors, isLoading];
 }
 
