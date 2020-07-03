@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import useAxios from '../hooks/useAxios';
 import Card from './Card';
 import Modal from './Modal';
@@ -41,9 +41,7 @@ function Pokedex(){
         if (e.target.dataset.nav === 'next'){
             let next = pokeModal + 1 === pokemon.length ? 0 : pokeModal + 1;
             setPokeModal(next);
-        }
-        console.log(pokemon[pokeModal]);
-                
+        }                
     }
 
     /** return error screen if error has ocurred */

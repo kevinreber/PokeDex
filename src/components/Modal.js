@@ -1,17 +1,13 @@
 import React from 'react';
 
 function Modal(props){
-    console.log(props.stats);
-    // console.log(props.stats.join());
-    let stats;
-   
+    /** need to make a duplicate of 'props.stats' b/c state can't be manipulated as a 'const' */
+    let stats; 
     if(props.stats){
        stats = props.stats.map(stat => (
             <span className="modal-stat">{stat.name[0].toUpperCase() + stat.name.slice(1)}: {stat.base} </span>
         ));
     }
-
-    // stat.name[0].toUpperCase() + stat.name.slice(1)
 
     return (
         <>
@@ -34,9 +30,6 @@ function Modal(props){
                         <p className="card-subtitle modal-text">Type: {props.type}</p>
                         <p className="card-subtitle modal-text">Abilities: {props.abilities}</p>
                         <p className="card-subtitle modal-text modal-stats">{stats}</p>
-
-                        {/* <p className="card-subtitle modal-text">Stats:</p>
-                        <p className="card-subtitle modal-text">{stats}</p> */}
                     </div> 
                 </div>
                 <div className="modal-cycle-container">
