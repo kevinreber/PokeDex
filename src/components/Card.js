@@ -1,13 +1,12 @@
 import React from 'react';
 
-function Card({id, name, image, type}){
-
+function Card(props){
     return (
         <>
-        <li id={id} className="card">
-            <img className="card-image" src={image} alt={name} />
-            <h2 className="card-title"> {id}.{name} </h2>
-            <p className="card-subtitle">Type: {type}</p> 
+        <li id={props.id} className="card" onClick={props.toggleModal}>
+            <img className="card-image" src={props.image} alt={props.name} />
+            <h2 className="card-title"> {props.id}.{props.name} </h2>
+            <p className="card-subtitle">Type: {props.type}</p> 
         </li>
         </>
     )
