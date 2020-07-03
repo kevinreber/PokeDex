@@ -19,7 +19,7 @@ function useAxios(start=1,end=150){
                     results.push(resp.data);
                 }
                     
-                results.map(r => {
+                results.map(r => {                    
                         setResponse(p => [...p,
                         {
                             name: r.name,
@@ -27,10 +27,16 @@ function useAxios(start=1,end=150){
                             image: r.sprites['front_default'],
                             shiny: r.sprites['front_shiny'],
                             type: r.types.map(type => type.type.name).join('/').toUpperCase(),
-                            abilities: r.abilities.map(ability => ability.ability.name).join(', ')
-                        }
-                    ]);
-                });                    
+                            abilities: r.abilities.map(ability => ability.ability.name).join(', '),
+                            // stats: r.stats.map(stat => `${stat.stat.name[0].toUpperCase() + stat.stat.name.slice(1)}: ${stat.base_stat}`)
+
+                            stats: r.stats.map(stat => {
+                                return {name: stat.stat.name, base: stat.base_stat}
+                            // stats: r.stats.map(stat => `<p className="card-subtitle modal-text">${stat.stat.name}: ${stat.base_stat}</p>`).join('<br>')
+                        })
+                    }
+                        ])
+                    });                   
             } catch (err) {
                 setErrors(err);
             }

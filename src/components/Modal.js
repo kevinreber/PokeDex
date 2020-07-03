@@ -1,6 +1,18 @@
 import React from 'react';
 
 function Modal(props){
+    console.log(props.stats);
+    // console.log(props.stats.join());
+    let stats;
+   
+    if(props.stats){
+       stats = props.stats.map(stat => (
+            <span className="modal-stat">{stat.name[0].toUpperCase() + stat.name.slice(1)}: {stat.base} </span>
+        ));
+    }
+
+    // stat.name[0].toUpperCase() + stat.name.slice(1)
+
     return (
         <>
             <div onClick={props.toggleModal} className="modal-overlay">
@@ -21,6 +33,10 @@ function Modal(props){
                         <h2 className="card-title modal-title"> {props.id}.{props.name} </h2> 
                         <p className="card-subtitle modal-text">Type: {props.type}</p>
                         <p className="card-subtitle modal-text">Abilities: {props.abilities}</p>
+                        <p className="card-subtitle modal-text modal-stats">{stats}</p>
+
+                        {/* <p className="card-subtitle modal-text">Stats:</p>
+                        <p className="card-subtitle modal-text">{stats}</p> */}
                     </div> 
                 </div>
                 <div className="modal-cycle-container">
