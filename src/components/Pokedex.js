@@ -16,7 +16,7 @@ function Pokedex(){
 
         /** Should only be able to toggle Modal if clicking outside of 
          * Modal when Modal is open or when Modal is closed */
-        if(e.target.className === 'modal-overlay' || e.target.className === 'modal-close' || !modalShow){
+        if(e.target.className === 'modal-overlay' || !modalShow){
             setModalShow( m => m = !m);
 
             /** reset pokeModal */
