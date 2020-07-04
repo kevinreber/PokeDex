@@ -11,7 +11,6 @@ function Header(){
                     Pokedex  
                     <Pokeball />
                 </h1>
-                <input id="filter" type="text" placeholder="Type..." />
             </header>
         </>
     )
