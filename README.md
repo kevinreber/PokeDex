@@ -7,6 +7,9 @@ Simple Pokedex App with the original 151 Pokemon.
 ![Pokedex Demo](public/demo/pokedexDemo.gif)
 <a href="https://kevinreber.github.io/PokeDex/">Live Demo</a>
 
+## Built With
+- React JS
+
 ## Pokemon API
 - [PokeApi](https://pokeapi.co/)
 
