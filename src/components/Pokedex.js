@@ -1,15 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import useAxios from '../hooks/useAxios';
 import Card from './Card';
 import Modal from './Modal';
 
 function Pokedex(){
     // State to store pokemon
-    const [pokemon, errors, isLoading] = useAxios(1,5);
+    const [pokemon, errors, isLoading] = useAxios(1,150);
     // State to display Modal
     const [modalShow, setModalShow] = useState(false);
     // State to display which Pokemon on Modal
     const [pokeModal, setPokeModal] = useState(null);
+    // State to filter pokemon type
+    const[search, setSearch] = useState('');
+    const [searchPoke, setSearchPoke] = useState([]);
+
+    /** updates state of search field */
+    const handleChange = (e) =>{
+        setSearch(e.target.value);
+    }
+
+    /** if user is making search, update 'searchPoke' to display matched pokemon types */
+    useEffect(() =>{        
+        const results = pokemon.filter(p => p.type.toLowerCase().includes(search));        
+        setSearchPoke(results);
+    },[search, setSearch])
+
 
     /** Toggle's modal and get's card's 'id' for 'pokModal' */
     const toggleModal = (e) => {
@@ -49,8 +64,11 @@ function Pokedex(){
         return (<h3 id="Loading" >Sorry, an error has occurred!</h3>)
     }
 
+    /** will use 'display' to determine to show filtered search or all pokemon */
+    let display = searchPoke.length !== 0 ? searchPoke : pokemon;
+
     /** build Card component for pokemon */
-    const pokemons = pokemon.map(p => (
+    const pokemons = display.map(p => (
         <Card
             key = {p.id}
             id = {p.id}
@@ -63,13 +81,20 @@ function Pokedex(){
 
     return (
         <>
+        <input 
+            id="filter" 
+            type="text" 
+            placeholder="Pokemon Types..." 
+            value={search}
+            onChange={handleChange}
+        />
         <div id="overlay" 
             className={modalShow ? "show" : "hide"}>
             <Modal 
                 {...pokemon[pokeModal]} 
                 navigateModal={navigateModal} 
                 toggleModal = {toggleModal}
-            />
+        />
         </div>
         <div className="Pokedex">
         <ol id="pokedex">
